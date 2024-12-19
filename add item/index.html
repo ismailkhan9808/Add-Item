@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Item list</title>
+</head>
+<body>
+   <input type="text" id="itemName">
+   <br>
+   <button  onclick="addItems()">ADD TO CART</button>
+    <ul class="itemlist">
+
+
+    </ul>
+ <script>
+    
+    let items= [];
+    
+    function printli(){
+      let li = "";
+     
+      for(let i=0; i < items.length; i++){
+        li +=`<li>
+                ${items[i]}
+            <button onclick="deleteItem(${i})">Delete</button>
+            </li>`
+
+     }
+      document.querySelector(".itemlist").innerHTML = li;
+
+    }
+    
+    function addItems(){
+     let itemName = document.getElementById("itemName").value;
+     
+     items.push(itemName)
+     printli()
+
+    }
+    
+    function deleteItem(id){
+     items.splice(id, 1);
+    printli()
+  }
+
+</script>
+
+</body>
+</html>
